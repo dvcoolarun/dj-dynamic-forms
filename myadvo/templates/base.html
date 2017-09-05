@@ -1,0 +1,115 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Auth Demo</title>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Survey Form</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if user.is_authenticated %}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.username }}<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Create Form</a></li>
+                                    <li><a href="#">Edit Form</a></li>
+                                    <li><a href="#" title="">Share Form</a></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li><a data-toggle="modal" href='#signup-login-modal-trigger'>Signup/login</a></li>
+                            {% block login-modal %}
+                            {% endblock %}
+                        {% endif %}
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
+
+        <div class="container">
+            {% block maincontent %}
+            {% endblock %}
+
+            {% block createform %}
+            {% endblock %}
+
+            {% block form_edit %}
+            {% endblock %}
+
+            {% block form_detail %}
+            {% endblock %}
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#AddNewQuestion').click(function(){
+
+                    $('#submit-form').remove()
+
+                    $('#finish-form').show()
+
+                    var que_type_value = $('#question-select').val()
+
+                    if(que_type_value == "MSSA"){
+                        alert(que_type_value)
+                        $('#question-answer-form').append('<div class="form-group"><label for="">Multichoice Single Answer Question</label><input type="text" name="mssa_question" class="form-control" placeholder="Enter Question"></div><div class="option_list form-group"><label for="" id="options" >Option1</label><input type="text" name="mssa_option1" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option2</label><input type="text" name="mssa_option2" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option3</label><input type="text" name="mssa_option3" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option4</label><input type="text" name="mssa_option4" class="form-control" id="option-input" placeholder="Enter Option"></div')
+                    }
+
+                    else if(que_type_value == "MSMA"){
+                        alert(que_type_value)
+                        $('#question-answer-form').append('<div class="form-group"><label for="">MultiChoice Multiple Answer Question</label><input type="text" name="msma_question" class="form-control" placeholder="Enter Question"></div><div class="option_list form-group"><label for="" id="options" >Option1</label><input type="text" name="msma_option1" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option2</label><input type="text" name="msma_option2" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option3</label><input type="text" name="msma_option3" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option4</label><input type="text" name="msma_option4" class="form-control" id="option-input" placeholder="Enter Option"></div')
+                    }
+
+                    else if(que_type_value == 'Paragraph'){
+                        alert(que_type_value)
+
+                        $('#question-answer-form').append('<div class="form-group"><label for="">Paragraph(Text Based Question)</label><input type="text" name="paragraph_question" class="form-control" placeholder="Enter Question"></div><div class="option_list form-group"><label for="" id="options" >Text</label><input type="text" name="paragraph_text" class="form-control" id="option-input" placeholder="Enter Option"></div')
+                    }
+
+                    else if(que_type_value == "boolean"){
+                        alert(que_type_value)
+
+                        $('#question-answer-form').append('<div class="form-group"><label for="">Boolean(Yes/NO Question)</label><input type="text" name="boolean_question" class="form-control" placeholder="Enter Question"></div><div class="option_list form-group"><label class="checkbox-inline"><input type="checkbox" name="boolean_option" value="True">True</label><label class="checkbox-inline"><input type="checkbox" value="False" name="boolean_option">False</label></div')
+                    }
+                })
+
+                $('#AddNewQuestion').click(function(){
+                    $('#finish-form').show()
+                    $('.form-name-div').hide()
+                })
+
+                $('#finish-form').click(function(){
+                    $('#question-answer-form').append('<div class="form-group form-name-div"><label for="">Pleae Enter Form Name</label><input type="text" class="form-control" placeholder="Enter Form Name" name="form_name" id="form_name"></div>')
+
+                    $('#question-answer-form').append('<button type="submit" class="btn btn-primary pull-right" value="submit" id="submit-form">Submit</button>')
+
+                    $('#finish-form').hide()
+
+                    alert("Please Fill All the Fields with Form Name then you can Submit.")
+                })
+            });
+        </script>
+        </body>
+    </html>

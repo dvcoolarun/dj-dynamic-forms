@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block createform %}
+	<div class="col-md-6">
+		<div class="questions">
+			<div class="question_list">
+				<h3>Your Form</h3>
+				<form action="/create_form/" method="post" id="question-answer-form">
+				 	{% csrf_token %}
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6 ">
+		<p class=""><strong>Please Select Type of Question to Create Form </strong><br></p>
+		<div class="question-types">
+			<select name="question-select" id="question-select">
+				<option value="MSSA" id="MSSA">
+					Multiple Select Single Answer
+				</option>
+				<option value="MSMA" id="MSMA">Multiple Select Multiple Answer</option>
+				<option value="Paragraph" id="para">Paragraph</option>
+				<option value="boolean" id="bool">True/False</option>
+			</select>
+		</div>
+		<br>
+		<button type="button" class="btn btn-primary" id="AddNewQuestion">Add New Question</button>
+		<button type="button" class="btn btn-primary pull-right" id="finish-form">Finish Form</button>
+	</div>
+{% endblock %}
+

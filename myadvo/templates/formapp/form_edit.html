@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block form_edit %}
+	<div class="">
+		<a href="{% url 'create_form' %}"><button type="text" class="btn btn-primary">Create New Form</button></a>
+		<h2>Your Previously Saved Forms</h2>
+		{% for each_form in forms_list_data %}
+			<a href="{{ each_form.get_absolute_url }}"><button type="text" class="btn btn-primary">Edit {{ each_form.data.form_name.0 }}</button></a>
+		{% endfor %}
+	</div>
+{% endblock %}
+

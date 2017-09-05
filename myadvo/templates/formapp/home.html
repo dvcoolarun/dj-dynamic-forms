@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block maincontent %}
+	<div class="">
+		<a href="{% url 'create_form' %}"><button type="text" class="btn btn-primary">Create New Form</button></a>
+		<a href="{% url 'form_edit' %}"><button type="text" class="btn btn-primary">Edit your Forms</button></a>
+	</div>
+{% endblock %}
+

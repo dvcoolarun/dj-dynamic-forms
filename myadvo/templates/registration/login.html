@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block login-modal %}
+  <div class="modal fade" id="signup-login-modal-trigger">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <a href="{% url 'social:begin' 'github' %}">GitHub</a>
+        <a href="{% url 'social:begin' 'twitter' %}">Twitter</a>
+        <a href="{% url 'social:begin' 'facebook' %}">Facebook</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
