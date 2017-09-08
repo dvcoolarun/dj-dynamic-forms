@@ -74,24 +74,24 @@
 
                     if(que_type_value == "MSSA"){
                         alert(que_type_value)
-                        $('#question-answer-form').append('<div class="form-group"><label for="">Multichoice Single Answer Question</label><input type="text" name="mssa_question" class="form-control" placeholder="Enter Question"></div><div class="option_list form-group"><label for="" id="options" >Option1</label><input type="text" name="mssa_option1" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option2</label><input type="text" name="mssa_option2" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option3</label><input type="text" name="mssa_option3" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option4</label><input type="text" name="mssa_option4" class="form-control" id="option-input" placeholder="Enter Option"></div')
+                        $('#question-answer-form').append('<div class="form-group"><label for="">Multichoice Single Answer Question</label><input type="text" name="mssa_question" class="form-control" placeholder="Enter Question"></div><div class="option_list form-group"><label for="" id="options" >Option1</label><input type="text" name="mssa_option1" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option2</label><input type="text" name="mssa_option2" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option3</label><input type="text" name="mssa_option3" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option4</label><input type="text" name="mssa_option4" class="form-control" id="option-input" placeholder="Enter Option"></div>')
                     }
 
                     else if(que_type_value == "MSMA"){
                         alert(que_type_value)
-                        $('#question-answer-form').append('<div class="form-group"><label for="">MultiChoice Multiple Answer Question</label><input type="text" name="msma_question" class="form-control" placeholder="Enter Question"></div><div class="option_list form-group"><label for="" id="options" >Option1</label><input type="text" name="msma_option1" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option2</label><input type="text" name="msma_option2" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option3</label><input type="text" name="msma_option3" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option4</label><input type="text" name="msma_option4" class="form-control" id="option-input" placeholder="Enter Option"></div')
+                        $('#question-answer-form').append('<div class="form-group"><label for="">MultiChoice Multiple Answer Question</label><input type="text" name="msma_question" class="form-control" placeholder="Enter Question"></div><div class="option_list form-group"><label for="" id="options" >Option1</label><input type="text" name="msma_option1" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option2</label><input type="text" name="msma_option2" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option3</label><input type="text" name="msma_option3" class="form-control" id="option-input" placeholder="Enter Option"><label for="" id="options" >Option4</label><input type="text" name="msma_option4" class="form-control" id="option-input" placeholder="Enter Option"></div>')
                     }
 
                     else if(que_type_value == 'Paragraph'){
                         alert(que_type_value)
 
-                        $('#question-answer-form').append('<div class="form-group"><label for="">Paragraph(Text Based Question)</label><input type="text" name="paragraph_question" class="form-control" placeholder="Enter Question"></div><div class="option_list form-group"><label for="" id="options" >Text</label><input type="text" name="paragraph_text" class="form-control" id="option-input" placeholder="Enter Option"></div')
+                        $('#question-answer-form').append('<div class="form-group"><label for="">Paragraph(Text Based Question)</label><input type="text" name="paragraph_question" class="form-control" placeholder="Enter Question"></div><div class="option_list form-group"><label for="" id="options" >Text</label><input type="text" name="paragraph_text" class="form-control" id="option-input" placeholder="Enter Option"></div>')
                     }
 
                     else if(que_type_value == "boolean"){
                         alert(que_type_value)
 
-                        $('#question-answer-form').append('<div class="form-group"><label for="">Boolean(Yes/NO Question)</label><input type="text" name="boolean_question" class="form-control" placeholder="Enter Question"></div><div class="option_list form-group"><label class="checkbox-inline"><input type="checkbox" name="boolean_option" value="True">True</label><label class="checkbox-inline"><input type="checkbox" value="False" name="boolean_option">False</label></div')
+                        $('#question-answer-form').append('<div class="form-group"><label for="">Boolean(Yes/NO Question)</label><input type="text" name="boolean_question" class="form-control" placeholder="Enter Question"></div><div class="option_list form-group"><label class="checkbox-inline"><input type="checkbox" name="boolean_option" value="True">True</label><label class="checkbox-inline"><input type="checkbox" value="False" name="boolean_option">False</label></div>')
                     }
                 })
 
@@ -101,7 +101,7 @@
                 })
 
                 $('#finish-form').click(function(){
-                    $('#question-answer-form').append('<div class="form-group form-name-div"><label for="">Pleae Enter Form Name</label><input type="text" class="form-control" placeholder="Enter Form Name" name="form_name" id="form_name"></div>')
+                    $('#question-answer-form').append('<div class="form-group form-name-div"><label for="">Pleae Enter Form Name</label><input type="text" class="form-control" placeholder="Enter Form Name" name="form_name" id="form_name" value="Survey form"></div>')
 
                     $('#question-answer-form').append('<button type="submit" class="btn btn-primary pull-right" value="submit" id="submit-form">Submit</button>')
 
