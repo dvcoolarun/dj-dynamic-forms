@@ -4,75 +4,80 @@
 
 {% block form_detail %}
 	{% if object.user_id == user.id %}
-		{% for each in object.data|get_list:"mssa_question"%}
-			<div class="form-group">
-				<label for="">Multichoice Single Answer Question</label>
-				<input type="text" name="mssa_question" class="form-control" placeholder="" value="{{ each.0 }}">
-			</div>
-			<div class="option_list form-group">
-				<label for="" id="options" >Option1</label>
-				<input type="text" name="mssa_option1" class="form-control" id="option-input" placeholder="" value="{{ each.1 }}">
-				<label for="" id="options" >Option2</label>
-				<input type="text" name="mssa_option2" class="form-control" id="option-input" placeholder="" value="{{ each.2 }}">
-				<label for="" id="options" >Option3</label>
-				<input type="text" name="mssa_option3" class="form-control" id="option-input" placeholder="" value="{{ each.3 }}">
-				<label for="" id="options" >Option4</label>
-				<input type="text" name="mssa_option4" class="form-control" id="option-input" placeholder="" value="{{ each.4 }}">
-			</div>
-		{% endfor %}
-		{% for each in object.data|get_list:"msma_question"%}
-			<div class="form-group">
-				<label for="">MultiChoice Multiple Answer Question</label>
-				<input type="text" name="msma_question" class="form-control" placeholder="" value="{{ each.0 }}">
-			</div>
-			<div class="option_list form-group">
-				<label for="" id="options" >Option1</label>
-				<input type="text" name="msma_option1" class="form-control" id="option-input" placeholder="" value="{{ each.1 }}">
-				<label for="" id="options" >Option2</label>
-				<input type="text" name="msma_option2" class="form-control" id="option-input" placeholder="" value="{{ each.2 }}">
-				<label for="" id="options" >Option3</label>
-				<input type="text" name="msma_option3" class="form-control" id="option-input" placeholder="" value="{{ each.3 }}">
-				<label for="" id="options" >Option4</label>
-				<input type="text" name="msma_option4" class="form-control" id="option-input" placeholder="" value="{{ each.4 }}">
-			</div>
-		{% endfor %}
-		{% for each in object.data|get_list:"msma_question"%}
-			<div class="form-group">
-				<label for="">MultiChoice Multiple Answer Question</label>
-				<input type="text" name="msma_question" class="form-control" placeholder="" value="{{ each.0 }}">
-			</div>
-			<div class="option_list form-group">
-				<label for="" id="options" >Option1</label>
-				<input type="text" name="msma_option1" class="form-control" id="option-input" placeholder="" value="{{ each.1 }}">
-				<label for="" id="options" >Option2</label>
-				<input type="text" name="msma_option2" class="form-control" id="option-input" placeholder="" value="{{ each.2 }}">
-				<label for="" id="options" >Option3</label>
-				<input type="text" name="msma_option3" class="form-control" id="option-input" placeholder="" value="{{ each.3 }}">
-				<label for="" id="options" >Option4</label>
-				<input type="text" name="msma_option4" class="form-control" id="option-input" placeholder="" value="{{ each.4 }}">
-			</div>
-		{% endfor %}
-		{% for each in object.data|get_list:"paragraph_question"%}
-			<div class="form-group">
-				<label for="">Paragraph(Text Based Question)</label><input type="text" name="paragraph_question" class="form-control" placeholder="" value="{{ each.0 }}">
-			</div>
-			<div class="option_list form-group">
-				<label for="" id="options" >Text</label>
-				<input type="text" name="paragraph_text" class="form-control" id="option-input" placeholder="" value="{{ each.1 }}">
-			</div>
-		{% endfor %}
-		{% for each in object.data|get_list:"boolean_question"%}
-			<div class="form-group">
-			<label for="">Boolean(Yes/NO Question)</label>
-				<input type="text" name="boolean_question" class="form-control" placeholder="" value="{{ each.0 }}">
-			</div>
-			<div class="option_list form-group">
-				<label class="checkbox-inline">
-				<input type="checkbox" name="boolean_option" value="True">True</label>
-				<label class="checkbox-inline">
-				<input type="checkbox" value="False" name="boolean_option">False</label>
-			</div>
-		{% endfor %}
+
+		{% if object.data.mssa_question %}
+			{% for each in object.data|get_list:"mssa_question"%}
+				<div class="form-group">
+					<label for="">Multichoice Single Answer Question</label>
+					<input type="text" name="mssa_question" class="form-control" placeholder="" value="{{ each.0 }}">
+				</div>
+				<div class="option_list form-group">
+					<label for="" id="options" >Option1</label>
+					<input type="text" name="mssa_option1" class="form-control" id="option-input" placeholder="" value="{{ each.1 }}">
+					<label for="" id="options" >Option2</label>
+					<input type="text" name="mssa_option2" class="form-control" id="option-input" placeholder="" value="{{ each.2 }}">
+					<label for="" id="options" >Option3</label>
+					<input type="text" name="mssa_option3" class="form-control" id="option-input" placeholder="" value="{{ each.3 }}">
+					<label for="" id="options" >Option4</label>
+					<input type="text" name="mssa_option4" class="form-control" id="option-input" placeholder="" value="{{ each.4 }}">
+				</div>
+			{% endfor %}
+		{% else %}
+		{% endif %}
+
+		{% if object.data.msma_question %}
+			{% for each in object.data|get_list:"msma_question"%}
+				<div class="form-group">
+					<label for="">MultiChoice Multiple Answer Question</label>
+					<input type="text" name="msma_question" class="form-control" placeholder="" value="{{ each.0 }}">
+				</div>
+				<div class="option_list form-group">
+					<label for="" id="options" >Option1</label>
+					<input type="text" name="msma_option1" class="form-control" id="option-input" placeholder="" value="{{ each.1 }}">
+					<label for="" id="options" >Option2</label>
+					<input type="text" name="msma_option2" class="form-control" id="option-input" placeholder="" value="{{ each.2 }}">
+					<label for="" id="options" >Option3</label>
+					<input type="text" name="msma_option3" class="form-control" id="option-input" placeholder="" value="{{ each.3 }}">
+					<label for="" id="options" >Option4</label>
+					<input type="text" name="msma_option4" class="form-control" id="option-input" placeholder="" value="{{ each.4 }}">
+				</div>
+			{% endfor %}
+		{% else %}
+		{% endif %}
+
+
+		{% if object.data.paragraph_question %}
+			{% for each in object.data|get_list:"paragraph_question"%}
+				<div class="form-group">
+					<label for="">Paragraph(Text Based Question)</label><input type="text" name="paragraph_question" class="form-control" placeholder="" value="{{ each.0 }}">
+				</div>
+				<div class="option_list form-group">
+					<label for="" id="options" >Text</label>
+					<input type="text" name="paragraph_text" class="form-control" id="option-input" placeholder="" value="{{ each.1 }}">
+				</div>
+			{% endfor %}
+		{% else%}
+		{% endif %}
+
+		{% if object.data.boolean_question %}
+			{% for each in object.data|get_list:"boolean_question"%}
+				<div class="form-group">
+				<label for="">Boolean(Yes/NO Question)</label>
+					<input type="text" name="boolean_question" class="form-control" placeholder="" value="{{ each.0 }}">
+				</div>
+				<div class="option_list form-group">
+					<label class="checkbox-inline">
+					<input type="checkbox" name="boolean_option" value="True">True</label>
+					<label class="checkbox-inline">
+					<input type="checkbox" value="False" name="boolean_option">False</label>
+				</div>
+			{% endfor %}
+		{% else %}
+		{% endif %}
+
+	{% else %}
+		<p> You are not Authorized User to Edit this Form</p>
 	{% endif %}
+
 {% endblock %}
 
