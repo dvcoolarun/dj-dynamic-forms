@@ -1,4 +1,4 @@
-#!/home/arun/myadvo/venv/bin/python
+#!/home/arun/dj-dynamic-forms/venv/bin/python
 from django.core import management
 
 if __name__ == "__main__":
