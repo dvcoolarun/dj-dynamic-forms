@@ -6,6 +6,8 @@
 
   * Create lots of tables to handle it. Nice, now you'll need more models and lots of additional sqls. Insertion and selection will be slow as hell.
 
+![Snapshot](aruntakkar.github.io/assets/images/create_form.png)
+
 ## How I Solved?
     I use django-hstore package with PostgreSQL to Solve above Problems.
     django-hstore  brings the power of NoSQL key/value stores into PostgreSQL.
